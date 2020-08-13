@@ -1,1 +1,1 @@
-web: gunicorn tudistribuidora.wsgi --log-file -
+web: gunicorn TuDistribuidora.wsgi --log-file -
