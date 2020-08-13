@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import dj_database_url
+import django_heroku
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -81,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'TuDistribuidora',
-        'USER': 'name',
-        'PASSWORD': '',
+        'USER': 'postgres',
+        'PASSWORD': 'sardina20',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -135,3 +136,5 @@ STATICFILES_DIRS = (
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+django_heroku.settings(locals())
