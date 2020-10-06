@@ -26,11 +26,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '8p*_a=z_8_)eohudvp0(1k)z0+#fr=w5x4m%j98-=*7i49p8h+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-<<<<<<< HEAD
-DEBUG = True
-=======
 DEBUG = True # Por el momento en True para ver los errores
->>>>>>> 19ba1c1733b7cd1343330a8c8433c9de97762934
 
 ALLOWED_HOSTS = ['127.0.0.1', 'tudistribuidora.herokuapp.com']
 

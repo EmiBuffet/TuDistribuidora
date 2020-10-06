@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode development --open",
+    "dev": "webpack-dev-server --mode development --port 9000 --open",
     "build": "webpack --progress"
   },
   "repository": {
@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/EmiBuffet/TuDistribuidora#readme",
   "dependencies": {
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.4.5",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -34,6 +36,7 @@
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "bulma": "^0.9.1"
   }
 }

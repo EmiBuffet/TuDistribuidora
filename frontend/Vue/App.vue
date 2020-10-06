@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>Hola {{ firstName }}</h1>
-        <app-prueba></app-prueba>
+        <app-header></app-header>
+        <router-view></router-view>
     </div>
 </template>
 <script>
-import Prueba from './components/Prueba.vue';
+import Header from './components/Header.vue';
 export default {
     data() {
         return {
@@ -13,7 +13,7 @@ export default {
         }
     },
     components: {
-        'app-prueba': Prueba
+        'app-header': Header
     }
 }
 </script>
