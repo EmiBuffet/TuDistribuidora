@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '8p*_a=z_8_)eohudvp0(1k)z0+#fr=w5x4m%j98-=*7i49p8h+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'TuDistribuidora',
         'USER': 'postgres',
-        'PASSWORD': 'sardina20',
+        'PASSWORD': 'admin', # hacer que esto no se pise...
         'HOST': 'localhost',
         'PORT': '',
     }
