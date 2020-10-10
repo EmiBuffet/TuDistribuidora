@@ -28,7 +28,7 @@ SECRET_KEY = '8p*_a=z_8_)eohudvp0(1k)z0+#fr=w5x4m%j98-=*7i49p8h+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # Por el momento en True para ver los errores
 
-ALLOWED_HOSTS = ['127.0.0.1', 'tudistribuidora.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'tudistribuidora.herokuapp.com', '127.0.0.1:8080']
 
 
 # Application definition
@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'jwtauth',
     'distribuidora.apps.DistribuidoraConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -137,6 +139,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+# CORS
+CORS_ORIGIN_ALLOW_ALL = True #dejarlo asi para prueba
+
+# En produccion poner solo los host de confianza.
+#CORS_ORIGIN_ALLOW_ALL = False
+#CORS_ORIGIN_WHITELIST = (
+#       'http://localhost:4200',
+#)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -145,9 +155,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
