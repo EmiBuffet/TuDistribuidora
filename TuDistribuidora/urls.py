@@ -23,7 +23,7 @@ from distribuidora import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
-    path('home/', views.HomeView.as_view(), name='home'),
+    path('api/home/', views.HomeView.as_view(), name='home'),
     path('auth/', include('rest_framework.urls')),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),

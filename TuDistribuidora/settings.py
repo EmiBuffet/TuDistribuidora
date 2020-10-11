@@ -29,7 +29,7 @@ SECRET_KEY = '8p*_a=z_8_)eohudvp0(1k)z0+#fr=w5x4m%j98-=*7i49p8h+'
 DEBUG = True # Por el momento en True para ver los errores
 
 ALLOWED_HOSTS = ['127.0.0.1', 'tudistribuidora.herokuapp.com', '127.0.0.1:8080']
-
+#ALLOWED_HOSTS = '*'
 
 # Application definition
 
@@ -141,6 +141,10 @@ USE_TZ = True
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = True #dejarlo asi para prueba
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+
 
 # En produccion poner solo los host de confianza.
 #CORS_ORIGIN_ALLOW_ALL = False
