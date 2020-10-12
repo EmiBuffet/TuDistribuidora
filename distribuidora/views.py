@@ -2,8 +2,9 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-
-# Create your views here.
+from rest_framework import viewsets
+from .models import Categoria
+from .serializers import CategoriaSerializer
 
 
 def home(request):
@@ -16,3 +17,8 @@ class HomeView(APIView):
     def get(self, request):
         content = {'message': 'Hola, Somos Tu Distribuidora!'}
         return Response(content)
+
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
