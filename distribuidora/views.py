@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from .models import Categoria
 from .serializers import CategoriaSerializer
 
@@ -20,5 +20,7 @@ class HomeView(APIView):
 
 
 class CategoriaViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+    #Agregar validacion para cuando quieren Eliminar, si tiene productos cargados con esta.

@@ -17,6 +17,7 @@ class Pedido(models.Model):
     direccion = models.CharField(max_length=100)
     entregado = models.BooleanField(null=True, blank=True)
     estado = models.CharField(max_length=1, choices=ESTADOS)
+    fecha_baja = models.DateField(null=True, blank=True)
 
     class Meta:
         ordering = ['-fecha_pedido']
@@ -28,6 +29,7 @@ class Pedido(models.Model):
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=150, null=True, blank=True)
+    fecha_baja = models.DateField(null=True, blank=True)
 
     class Meta:
         ordering = ['nombre']
