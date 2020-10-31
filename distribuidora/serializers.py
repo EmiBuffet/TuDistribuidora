@@ -1,4 +1,4 @@
-from .models import Categoria, Producto
+from .models import Categoria, Producto, Usuario
 from rest_framework import serializers
 
 
@@ -19,3 +19,9 @@ class ProductoSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         self.fields['categoria'] = CategoriaSerializer(read_only=True)
         return super().to_representation(instance)
+
+
+class UsuarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Usuario
+        fields = ['username', 'first_name', 'last_name', 'email', 'dni', 'localidad', 'imagen_perfil']

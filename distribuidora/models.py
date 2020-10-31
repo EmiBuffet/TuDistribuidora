@@ -1,8 +1,17 @@
 from decimal import Decimal
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.conf import settings
 
+
+class Usuario(AbstractUser):
+    dni = models.CharField(max_length=8, null=True, blank=True)
+    localidad = models.CharField(max_length=30, blank=True)
+    imagen_perfil = models.CharField(null=True, blank=True, max_length=400)
+
+    def __str__(self):
+        return self.email
 
 class Pedido(models.Model):
     ESTADOS = (
@@ -11,7 +20,7 @@ class Pedido(models.Model):
         ('3', 'Terminado'),
         ('4', 'Cancelado'),
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     fecha_pedido = models.DateField()
     fecha_entrega = models.DateField(null=True, blank=True)
     direccion = models.CharField(max_length=100)

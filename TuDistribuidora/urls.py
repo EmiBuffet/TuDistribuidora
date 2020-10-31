@@ -24,6 +24,7 @@ from distribuidora import views
 router = routers.DefaultRouter()
 router.register(r'categorias', views.CategoriaViewSet)
 router.register(r'productos', views.ProductoViewSet)
+router.register(r'usuarios', views.UsuarioViewSet, basename='usuarios')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
