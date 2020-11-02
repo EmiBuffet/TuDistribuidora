@@ -20,7 +20,7 @@ class Pedido(models.Model):
         ('3', 'Terminado'),
         ('4', 'Cancelado'),
     )
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fecha_pedido = models.DateField()
     fecha_entrega = models.DateField(null=True, blank=True)
     direccion = models.CharField(max_length=100)
