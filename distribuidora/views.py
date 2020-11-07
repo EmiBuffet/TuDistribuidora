@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import action
 import django_filters
 from rest_framework.views import APIView
@@ -39,6 +40,7 @@ class ProductoViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     filterset_fields = ['nombre']
     ordering_fields = ('nombre', 'fecha_carga')
+    ordering = ['nombre']
 
 
 class UsuarioViewSet(viewsets.ViewSet):
@@ -48,7 +50,6 @@ class UsuarioViewSet(viewsets.ViewSet):
         usuario = get_object_or_404(queryset, pk=1)
         serializer = UsuarioSerializer(usuario)
         return Response(serializer.data)
-
 
     def update(self, request, pk=None):
         queryset = Usuario.objects.filter(username=pk)
