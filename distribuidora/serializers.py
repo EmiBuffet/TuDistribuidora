@@ -24,4 +24,4 @@ class ProductoSerializer(serializers.ModelSerializer):
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['username', 'first_name', 'last_name', 'email', 'dni', 'localidad', 'imagen_perfil']
+        fields = ['username', 'first_name', 'last_name', 'email', 'is_staff', 'dni', 'localidad', 'imagen_perfil']
