@@ -38,7 +38,10 @@ class ProductoViewSet(viewsets.ModelViewSet):
     serializer_class = ProductoSerializer
 
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
-    filterset_fields = ['nombre']
+    filterset_fields = {
+        'nombre': ['exact'],
+        'fecha_baja': ['isnull']
+    }
     ordering_fields = ('nombre', 'fecha_carga')
     ordering = ['nombre']
 
